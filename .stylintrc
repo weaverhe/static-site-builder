@@ -1,0 +1,81 @@
+{
+  "blocks": false,
+  "brackets": {
+    "error": true,
+    "expect": "never"
+  },
+  "colons": {
+    "error": true,
+    "expect": "never"
+  },
+  "colors": {
+    "error": true,
+    "expect": "always"
+  },
+  "commaSpace": {
+    "error": true,
+    "expect": "always"
+  },
+  "commentSpace": {
+    "error": true,
+    "expect": "always"
+  },
+  "cssLiteral": {
+    "error": true,
+    "expect": "never"
+  },
+  "depthLimit": false,
+  "duplicates": false,
+  "efficient": "always",
+  "extendPref": false,
+  "globalDupe": true,
+  "indentPref": 2,
+  "leadingZero": {
+    "error": true,
+    "expect": "always"
+  },
+  "maxErrors": 0,
+  "maxWarnings": false,
+  "mixed": false,
+  "namingConvention": "lowercase-dash",
+  "namingConventionStrict": false,
+  "noImportant": false,
+  "none": {
+    "error": true,
+    "expect": "never"
+  },
+  "parenSpace": false,
+  "placeholders": "always",
+  "prefixVarsWithDollar": {
+    "error": true,
+    "expect": "always"
+  },
+  "quotePref": {
+    "error": true,
+    "expect": "single"
+  },
+  "reporter": "../core/reporter",
+  "semicolons": {
+    "error": true,
+    "expect": "never"
+  },
+  "sortOrder": false,
+  "stackedProperties": {
+    "error": true,
+    "expect": "never"
+  },
+  "trailingWhitespace": {
+    "error": true,
+    "expect": "never"
+  },
+  "universal": false,
+  "valid": false,
+  "zeroUnits": {
+    "error": true,
+    "expect": "never"
+  },
+  "zIndexNormalize": {
+    "error": true,
+    "expect": 10
+  }
+}

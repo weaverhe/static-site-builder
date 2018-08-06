@@ -1,0 +1,15 @@
+{
+	"env": {
+		"es6": true,
+		"browser": true
+	},
+	"extends": "airbnb",
+	"rules": {
+		"no-console": 1,
+		"no-unused-vars": 1,
+		"no-tabs": 0,
+		"indent": [2, "tab"],
+		"spaced-comment": 0
+	},
+	"plugins": ["html"]
+}
