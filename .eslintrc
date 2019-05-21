@@ -1,15 +1,23 @@
 {
+	"extends": "airbnb",
 	"env": {
+		"node": true,
 		"es6": true,
 		"browser": true
 	},
-	"extends": "airbnb",
 	"rules": {
-		"no-console": 1,
+		"indent": ["error", "tab"],
+		"no-multi-spaces": 0,
+        "no-tabs": 0,
+		"no-undef": 1,
 		"no-unused-vars": 1,
-		"no-tabs": 0,
-		"indent": [2, "tab"],
-		"spaced-comment": 0
+		"space-in-parens": [2, "always"],
+		"space-unary-ops": [
+			2, {
+				"words": false,
+				"nonwords": true 
+			}
+		]
 	},
-	"plugins": ["html"]
+	"globals": {}
 }

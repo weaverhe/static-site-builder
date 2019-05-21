@@ -1,0 +1,42 @@
+Arguments: 
+  /Users/heatherweaver/.nvm/versions/node/v10.9.0/bin/node /Users/heatherweaver/.yarn/bin/yarn.js add @babel/core @babel/polyfill @babel/preset-env @babelify @browser-sync eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react -D
+
+PATH: 
+  /Applications/MAMP/bin/php/php5.6.40/bin:/Users/heatherweaver/.yarn/bin:/Users/heatherweaver/.config/yarn/global/node_modules/.bin:/Users/heatherweaver/.nvm/versions/node/v10.9.0/bin:/Applications/Genymotion.app/Contents/MacOS/tools/:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin:/usr/local/opt/wildfly-as/libexec/bin:/Applications/MAMP/Library/bin
+
+Yarn version: 
+  1.16.0
+
+Node version: 
+  10.9.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@babelify: Request "https://registry.yarnpkg.com/@babelify" returned a 405
+      at Request.params.callback [as _callback] (/Users/heatherweaver/.yarn/lib/cli.js:66100:18)
+      at Request.self.callback (/Users/heatherweaver/.yarn/lib/cli.js:129590:22)
+      at Request.emit (events.js:182:13)
+      at Request.<anonymous> (/Users/heatherweaver/.yarn/lib/cli.js:130562:10)
+      at Request.emit (events.js:182:13)
+      at IncomingMessage.<anonymous> (/Users/heatherweaver/.yarn/lib/cli.js:130484:12)
+      at Object.onceWrapper (events.js:273:13)
+      at IncomingMessage.emit (events.js:187:15)
+      at endReadableNT (_stream_readable.js:1085:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "static-site-builder",
+    "version": "1.0.0",
+    "description": "A simple static site builder",
+    "author": "Heather Weaver",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
