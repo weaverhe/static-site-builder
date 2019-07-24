@@ -34,3 +34,16 @@
 		border-left none
 		border-right none
 		clip auto
+
+.plain-list
+	padding-left 0
+
+	list-style url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E")
+
+@media screen and ( prefers-reduced-motion reduce )
+	*
+	*:before
+	*:after
+		animation none !important
+		scroll-behavior auto !important
+		transition none !important
