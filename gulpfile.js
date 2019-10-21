@@ -8,6 +8,11 @@ const browserSync = require( 'browser-sync' ).create();
 // load generic JS components
 const imageminJpegRecompress = require( 'imagemin-jpeg-recompress' );
 const imageminPngcrush       = require( 'imagemin-pngcrush' );
+const browserify             = require( 'browserify' );
+const source                 = require( 'vinyl-source-stream' );
+const buffer                 = require( 'vinyl-buffer' );
+const babel                  = require( 'babelify' );
+const cleanCSS               = require( 'gulp-clean-css' );
 
 // load local config
 const gConfig = require( './gulp-config' );
@@ -83,9 +88,7 @@ gulp.task( 'autoprefix-css', gulp.series( 'compile-stylus', () => (
 	gulp.src( destinations.cssM )
 		.pipe( $.plumber( plumberErrorHandler ) )
 		.pipe( $.sourcemaps.init() )
-		.pipe( $.autoprefixer( {
-			browsers: ['last 8 versions'],
-		} ) )
+		.pipe( $.autoprefixer() )
 		.pipe( $.sourcemaps.write( '.' ) )
 		.pipe( gulp.dest( destinations.css ) )
 ) ) );
@@ -94,8 +97,7 @@ gulp.task( 'autoprefix-css', gulp.series( 'compile-stylus', () => (
 // this will vet + compile from stylus before minifying
 gulp.task( 'minify-css', gulp.series( 'autoprefix-css', () => (
 	gulp.src( destinations.cssM )
-		.pipe( $.plumber( plumberErrorHandler ) )
-		.pipe( $.cssmin() )
+		.pipe( cleanCSS( { debug: true } ) )
 		.pipe( gulp.dest( destinations.css ) )
 ) ) );
 
@@ -121,13 +123,23 @@ gulp.task( 'lint-javascript', () => (
 		.pipe( $.eslint.failAfterError() )
 ) );
 
-gulp.task( 'transpile-javascript', gulp.series( 'lint-javascript', () => (
-	gulp.src( sources.jsM )
-		.pipe( $.browserify( {
-			transform: ['babelify'],
-		} ) )
-		.pipe( gulp.dest( destinations.js ) )
-) ) );
+const compile = () => {
+	const bundler = browserify( sources.jsM, { debug: true } ).transform( babel );
+
+	const rebundle = () => {
+		return bundler.bundle()
+			.on( 'error', function( err ) { console.error( err ); this.emit( 'end' ) } )
+			.pipe( source( sources.jsM ) )
+			.pipe( buffer() )
+			.pipe( $.sourcemaps.init( { loadMaps: true } ) )
+			.pipe( $.sourcemaps.write( './' ) )
+			.pipe( gulp.dest( destinations.js ) );
+	};
+
+	return rebundle();
+};
+
+gulp.task( 'transpile-javascript', gulp.series( 'lint-javascript', () => compile() ) );
 
 // minify/uglify javascript
 gulp.task( 'compress-javascript', gulp.series( 'transpile-javascript', () => (

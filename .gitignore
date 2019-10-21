@@ -1,2 +1,4 @@
 node_modules/
 assets/
+yarn.lock
+package-lock.json
