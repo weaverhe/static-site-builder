@@ -1,3 +1,8 @@
+*:focus:not(:focus-visible)
+*:before:focus:not(:focus-visible),
+*:after:focus:not(:focus-visible)
+	outline none
+
 .screen-reader-only
 #skipnav
 	overflow hidden
@@ -40,6 +45,7 @@
 
 	list-style url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E")
 
+// this can be problematic in browser testing, and may need to be temporarily disabled.
 @media screen and ( prefers-reduced-motion reduce )
 	*
 	*:before
