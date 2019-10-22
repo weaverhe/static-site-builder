@@ -129,7 +129,7 @@ const compile = () => {
 	const rebundle = () => {
 		return bundler.bundle()
 			.on( 'error', function( err ) { console.error( err ); this.emit( 'end' ) } )
-			.pipe( source( sources.jsM ) )
+			.pipe( source( 'main.js' ) )
 			.pipe( buffer() )
 			.pipe( $.sourcemaps.init( { loadMaps: true } ) )
 			.pipe( $.sourcemaps.write( './' ) )
