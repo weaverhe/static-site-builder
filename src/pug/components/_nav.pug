@@ -1,0 +1,18 @@
+mixin nav(pageRoot)
+	nav.primary-navigation(aria-label="Primary Navigation")
+		.pn__container
+			a.pn__logo(href="/")
+				img(src=pageRoot + "/assets/img/company-logo.png", alt="Company")
+			
+			button#mobile-nav-toggle.pn__mobile-toggle
+				span.pn__navicon
+			
+			ul.pn__menu
+				li
+					a(href="#") Link
+				li
+					a(href="#") Link
+				li
+					a(href="#") Link
+				li
+					a(href="#") Link

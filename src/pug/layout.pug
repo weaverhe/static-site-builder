@@ -1,19 +1,31 @@
+include components/_nav
+include components/_footer
+
+block variables
+
 doctype html
 html
 	head
+		block head
+			title Static Site Generator
+			meta(name="description" content="This is a placeholder description for the page")
+		
 		meta(charset="utf-8")
-			
-		title Static Site Generator
-		meta(name="description" content="This is a placeholder description for the page")
 
 		meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
 
-		link(rel="stylesheet", href="./assets/css/style.css")
+		link(rel="stylesheet", href=pageRoot + "/assets/css/style.css")
 
-	body
+		script(src=pageRoot + "/assets/js/main.js")
+
+	body(class=bodyClass)
 		a#skipnav(href="#main-content") Skip to Content
+
+		+nav(pageRoot)
 
 		main(id="main-content" tabindex="-1")
 			block content
+		
+		+footer(pageRoot)
 
-		script(src="./assets/js/main.js")
+		
